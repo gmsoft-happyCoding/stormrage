@@ -1,0 +1,11 @@
+{
+  "name": "stormrage",
+  "version": "0.1.0",
+  "description": "gmsoft frontend cli",
+  "main": "index.js",
+  "repository": "https://github.com/gmsoft-happyCoding/stormrage",
+  "license": "MIT",
+  "dependencies": {
+    "stormrage": "^0.1.0"
+  }
+}
