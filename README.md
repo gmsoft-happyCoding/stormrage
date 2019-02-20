@@ -2,6 +2,8 @@
 
 gmsoft frontend cli
 
+![Illidan Stormrage](img/Illidan%20Stormrage.jpg)
+
 # install
 
 `npm i stormrage -g`
