@@ -24,6 +24,11 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
+atomic-write@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/atomic-write/-/atomic-write-0.1.1.tgz#0e9d36885f355dc72c837c8fffb12704d9e3e6da"
+  integrity sha1-Dp02iF81Xccsg3yP/7EnBNnj5to=
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/balanced-match/download/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
@@ -263,6 +268,11 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "http://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
+eventemitter3@^3.0.0:
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/eventemitter3/-/eventemitter3-3.1.0.tgz#090b4d6cdbd645ed10bf750d4b5407942d7ba163"
+  integrity sha512-ivIvhpq/Y0uSjcHDcOIccjmYjGLcP09MFGE7ysAwkAvkXfpZlC985pH2/ui64DKazbTW/4kN3yqozUxlXzI6cA==
+
 external-editor@^3.0.3:
   version "3.0.3"
   resolved "http://registry.npm.taobao.org/external-editor/download/external-editor-3.0.3.tgz#5866db29a97826dbe4bf3afd24070ead9ea43a27"
@@ -411,6 +421,15 @@ has-to-string-tag-x@^1.2.0:
   dependencies:
     has-symbol-support-x "^1.4.1"
 
+hosts-so-easy@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.npmjs.org/hosts-so-easy/-/hosts-so-easy-1.2.4.tgz#28052aaf9643714b9c0e9169b41d4d7114bdf2b8"
+  integrity sha512-fz+G2GjCAdBwS6yDYnBp4w/z7k8pw9+xbwz6lOfWXbwAS1jzZkPfwZsi2KErikA51x9+WPlMStyC/I/FJoSbXw==
+  dependencies:
+    atomic-write "^0.1.1"
+    eventemitter3 "^3.0.0"
+    lodash "^4.17.10"
+
 iconv-lite@^0.4.24:
   version "0.4.24"
   resolved "http://registry.npm.taobao.org/iconv-lite/download/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
@@ -508,7 +527,7 @@ isurl@^1.0.0-alpha5:
     has-to-string-tag-x "^1.2.0"
     is-object "^1.0.1"
 
-lodash@^4.17.11:
+lodash@^4.17.10, lodash@^4.17.11:
   version "4.17.11"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha1-s56mIp72B+zYniyN8SU2iRysm40=
