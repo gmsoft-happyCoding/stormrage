@@ -1,5 +1,7 @@
 # stormrage
 
+[![npm version](https://img.shields.io/npm/v/stormrage.svg?style=flat-square)](https://www.npmjs.com/package/stormrage)
+
 gmsoft frontend cli
 
 ![Illidan Stormrage](img/Illidan%20Stormrage.jpg)
