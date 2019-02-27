@@ -22,6 +22,6 @@ gmsoft frontend cli
 >
 > (stormrage 会尝试自动设置, 如果设置失败, 请手动设置以下规则)
 >
-> 192.168.2.11 cdn.gmsoftdev.com
-> 192.168.2.11 registry.gmsoftdev.com
-> 192.168.2.12 registry.gmsofttest.com
+> - 192.168.2.11 cdn.gmsoftdev.com
+> - 192.168.2.11 registry.gmsoftdev.com
+> - 192.168.2.12 registry.gmsofttest.com
