@@ -24,7 +24,7 @@ gmsoft frontend cli
 
 ---
 
-#### `npx stormrage init`
+#### `stormrage init`
 
 option:
 * `-s, --no-start` 生成后不自动启动项目
@@ -39,7 +39,7 @@ option:
 
 ---
 
-#### `npx stormrage start [project]`
+#### `stormrage start [project]`
 
 ###### project - 指定项目, 未指定时默认为当前目录
 
@@ -49,7 +49,7 @@ option:
 
 ---
 
-#### `npx stormrage devbuild [project]`
+#### `stormrage devbuild [project]`
 
 ###### project - 指定项目, 未指定时默认为当前目录
 
@@ -59,7 +59,7 @@ option:
 
 ---
 
-#### `npx stormrage test [project]`
+#### `stormrage test [project]`
 
 ###### project - 指定项目, 未指定时默认为当前目录
 
@@ -68,7 +68,7 @@ option:
 
 ---
 
-#### `npx stormrage bad [project]` or `npx stormrage deploy [project]`
+#### `stormrage bad [project]` or `stormrage deploy [project]`
 
 ###### project - 指定项目, 未指定时默认为当前目录
 option:
@@ -80,7 +80,7 @@ option:
 
 ---
 
-#### `npx stormrage genapi [project]`
+#### `stormrage genapi [project]`
 
 ###### project - 指定项目, 未指定时默认为当前目录
 
@@ -89,7 +89,7 @@ option:
 
 ---
 
-#### `npx stormrage test [project]`
+#### `stormrage docz [project]`
 
 ###### project - 指定项目, 未指定时默认为当前目录
 
