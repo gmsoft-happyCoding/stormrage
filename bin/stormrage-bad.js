@@ -5,11 +5,11 @@ const program = require('commander');
 const bad = require('../lib/commands/bad');
 
 program
-  .option('-p, --package <package>', '项目为mono仓库时, 指定启动的package')
+  .option('-p, --package <package>', 'react项目为mono仓库时, 指定要发布的package')
   .option('-d, --dest <path>', '发布结果存放位置, 默认为<d:/发布结果>')
   .option('--no-doc', '不生成组件文档')
   .option('--pick', '选择需要发布的组件, 组件项目有效')
-  .option('--svn <url>', '通过svn url指定需要发布的项目')
+  .option('--svn <url>', '通过svn url指定需要发布的项目, 优先级高于 [project]')
   .parse(process.argv);
 
 const projectDir = program.args[0]

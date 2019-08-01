@@ -6,6 +6,9 @@
   "main": "bin/stormrage.js",
   "repository": "https://github.com/gmsoft-happyCoding/stormrage",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
     "@babel/core": "7.1.0",
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
