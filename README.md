@@ -8,7 +8,11 @@ gmsoft frontend cli
 
 # install
 
-`npm i stormrage -g`
+`yarn global add stormrage`
+
+> 如果安装后使用提示 stormrage 找不到
+> 1. 执行 `yarn global bin`
+> 2. 将输出结果加入到操作系统环境变量 `path` 中
 
 ## sub-commit
 
