@@ -23,6 +23,7 @@ gmsoft frontend cli
 - `bad | deploy [project]`  编译部署
 - `genapi [project]`  生成api代码
 - `docz [project]`  启动docz调试
+- `fisinstall | fi [components]` 使用 fis3 install 安装项目依赖
 
 ### usage
 
@@ -50,6 +51,8 @@ option:
 option:
 * `-p, --package <package>`  react项目为mono仓库时, 指定启动的package
 * `--port <port>`  react项目启动端口号, 默认 app: 3000, components: 3030
+* `-o, --output <path>`  fis项目的产出目录, 默认为 D:/debug-root, macOS 下为 ~/debug-root
+* `-c, --clean`  fis项目启动调试前, 先清除编译缓存
 
 ---
 
@@ -75,12 +78,15 @@ option:
 #### `stormrage bad [project]` or `stormrage deploy [project]`
 
 ###### project - 指定项目, 未指定时默认为当前目录
+
 option:
 * `-p, --package <package>` react项目为mono仓库时, 指定要发布的package
 * `-d, --dest <path>` 发布结果存放位置, 默认为 *d:/发布结果*
 * `--no-doc` 不生成组件文档
 * `--pick` 选择需要发布的组件, 组件项目有效
 * `--svn <url>` 通过svn url指定需要发布的项目, 优先级高于 `[project]`
+* `--env <deployEnv>` 指定发布目标环境
+* `--room <deployRoom>` 指定发布目标机房
 
 ---
 
@@ -99,3 +105,12 @@ option:
 
 option:
 * `-p, --package <package>`  react项目为mono仓库时, 指定启动的package
+
+---
+
+#### `stormrage fisinstall [components]` or `stormrage fi [components]`
+
+###### components - 需要安装的依赖
+
+option:
+* `-r, --root <project>` 指定项目根目录

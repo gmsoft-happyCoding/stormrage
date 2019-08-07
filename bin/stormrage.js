@@ -15,5 +15,7 @@ program
   .command('bad [project]', '编译部署')
   .alias('deploy')
   .command('devbuild [project]', '启动组件项目开发编译, 用于和app的联调')
+  .command('fisinstall [components]', '使用 fis3 install 安装项目依赖')
+  .alias('fi')
 
   .parse(process.argv);
