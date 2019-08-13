@@ -3,6 +3,7 @@
 const path = require('path');
 const program = require('commander');
 const bad = require('../lib/commands/bad');
+const pluginOptionProcess = require('./utils/pluginOptionProcess');
 
 program
   .option('-p, --package <package>', 'react项目为mono仓库时, 指定要发布的package')
@@ -12,6 +13,7 @@ program
   .option('--svn <url>', '通过svn url指定需要发布的项目, 优先级高于 [project]')
   .option('--env <deployEnv>', '指定发布目标环境')
   .option('--room <deployRoom>', '指定发布目标机房')
+  .option('--plugin-option <json>', 'fis项目传递给插件的参数(must be a json)', pluginOptionProcess)
   .parse(process.argv);
 
 const projectDir = program.args[0]
