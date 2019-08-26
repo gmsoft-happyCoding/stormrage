@@ -87,6 +87,7 @@ option:
 * `--svn <url>` 通过svn url指定需要发布的项目, 优先级高于 `[project]`
 * `--env <deployEnv>` 指定发布目标环境
 * `--room <deployRoom>` 指定发布目标机房
+* `--plugin-option <json>` fis项目传递给插件的参数(must be a json)
 
 ---
 
