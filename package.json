@@ -1,6 +1,6 @@
 {
   "name": "stormrage",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "gmsoft frontend cli",
   "bin": "bin/stormrage.js",
   "main": "bin/stormrage.js",
