@@ -85,6 +85,7 @@ option:
 * `--no-doc` 不生成组件文档
 * `--pick` 选择需要发布的组件, 组件项目有效
 * `--svn <url>` 通过svn url指定需要发布的项目, 优先级高于 `[project]`
+* `--no-force-svn-checkout` 使用svn选项时, 若已有缓存, 不做checkout操作, 直接使用缓存
 * `--env <deployEnv>` 指定发布目标环境
 * `--room <deployRoom>` 指定发布目标机房
 * `--plugin-option <json>` fis项目传递给插件的参数(must be a json)

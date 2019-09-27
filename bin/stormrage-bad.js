@@ -11,7 +11,10 @@ program
   .option('--no-doc', '不生成组件文档')
   .option('--pick', '选择需要发布的组件, 组件项目有效')
   .option('--svn <url>', '通过svn url指定需要发布的项目, 优先级高于 [project]')
-  .option('--no-svn-checkout', '使用svn参数时, 不做checkout操作, 而使用已有的缓存')
+  .option(
+    '--no-force-svn-checkout',
+    '使用svn选项时, 若已有项目缓存, 不执行checkout操作, 直接使用缓存'
+  )
   .option('--env <deployEnv>', '指定发布目标环境')
   .option('--room <deployRoom>', '指定发布目标机房')
   .option('--plugin-option <json>', 'fis项目传递给插件的参数(must be a json)', pluginOptionProcess)
