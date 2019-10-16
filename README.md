@@ -56,6 +56,7 @@ option:
 - `--port <port>` react 项目启动端口号, 默认 app: 3000, components: 3030
 - `-o, --output <path>` fis 项目的产出目录, 默认为 D:/debug-root, macOS 下为 ~/debug-root
 - `-c, --clean` fis 项目启动调试前, 先清除编译缓存
+- `--plugin-option <json>` fis 项目传递给插件的参数(must be a json)
 
 ---
 
