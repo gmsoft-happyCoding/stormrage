@@ -17,11 +17,7 @@ program
   )
   .option('--env <deployEnv>', '指定发布目标环境')
   .option('--room <deployRoom>', '指定发布目标机房')
-  .option('--plugin-option <json>', 'fis项目传递给插件的参数(must be a json)', pluginOptionProcess)
-  .option(
-    '--env-file <fileName>',
-    'react项目指定环境变量配置文件(默认为 `${env}-${room}`), eg: .env.pro-xcj, 请设置为 --env-file pro-xcj'
-  )
+  .option('--plugin-option <json>', '传递给插件的参数(must be a json)', pluginOptionProcess)
   .parse(process.argv);
 
 const projectDir = program.args[0]

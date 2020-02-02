@@ -57,7 +57,7 @@ option:
 - `-o, --output <path>` fis 项目的产出目录, 默认为 D:/debug-root, macOS 下为 ~/debug-root
 - `-c, --clean` fis 项目启动调试前, 先清除编译缓存
 - `--plugin-option <json>` fis 项目传递给插件的参数(must be a json)
--  `--env-file <fileName>` react项目指定环境变量配置文件(默认为 .env), *示例: .env.pro-xcj, 请设置为 --env-file pro-xcj*
+- `--env-file <fileName>` react 项目指定环境变量配置文件(默认为 .env), _示例: .env.pro-xcj, 请设置为 --env-file pro-xcj_
 
 ---
 
@@ -97,8 +97,7 @@ option:
 - `--env <deployEnv>` 指定发布目标环境
 - `--room <deployRoom>` 指定发布目标机房
 - `--plugin-option <json>` fis 项目传递给插件的参数(must be a json)
--  `--env-file <fileName>` react项目指定环境变量配置文件(默认为 `${env}-${room}`), *eg: .env.pro-xcj, 请设置为 --env-file pro-xcj*
-  
+- `--env-file <fileName>` react 项目指定环境变量配置文件(默认为 `${env}-${room}`), _eg: .env.pro-xcj, 请设置为 --env-file pro-xcj_
 
 ---
 
