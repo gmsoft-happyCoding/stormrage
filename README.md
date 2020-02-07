@@ -25,6 +25,7 @@ gmsoft frontend cli
 - `genapi [project]` 生成 api 代码
 - `docz [project]` 启动 docz 调试
 - `fisinstall | fi [components]` 使用 fis3 install 安装项目依赖
+- `replace [project]`, 对项目内容进行(二次)替换
 
 ### usage
 
@@ -57,7 +58,7 @@ option:
 - `-o, --output <path>` fis 项目的产出目录, 默认为 D:/debug-root, macOS 下为 ~/debug-root
 - `-c, --clean` fis 项目启动调试前, 先清除编译缓存
 - `--plugin-option <json>` fis 项目传递给插件的参数(must be a json)
--  `--env-file <fileName>` react项目指定环境变量配置文件(默认为 .env), *示例: .env.pro-xcj, 请设置为 --env-file pro-xcj*
+- `--env-file <fileName>` react 项目指定环境变量配置文件(默认为 .env), _示例: .env.pro-xcj, 请设置为 --env-file pro-xcj
 
 ---
 
@@ -97,8 +98,7 @@ option:
 - `--env <deployEnv>` 指定发布目标环境
 - `--room <deployRoom>` 指定发布目标机房
 - `--plugin-option <json>` fis 项目传递给插件的参数(must be a json)
--  `--env-file <fileName>` react项目指定环境变量配置文件(默认为 `${env}-${room}`), *eg: .env.pro-xcj, 请设置为 --env-file pro-xcj*
-  
+- `--env-file <fileName>` react 项目指定环境变量配置文件(默认为 `${env}-${room}`), _eg: .env.pro-xcj, 请设置为 --env-file pro-xcj
 
 ---
 
@@ -132,6 +132,19 @@ option:
 
 ---
 
+---
+
+#### `stormrage replace [project]`
+
+###### project - 已编译的项目结果
+
+option:
+- `-c, --conf <path>` 指定替换内容的配置(js)文件, 返回一个 object, key 为被替换内容，value 为替换内容。eg: module.export = {"a": "b"};
+- `-o, --output <output>` 指定替换后的项目输出位置(如果路径以.zip结尾，则会输出压缩文件)
+- `-t, --output-type <outputType>` 指定输出格式 dir | zip，如果output未以.zip结尾 默认为 dir
+
+---
+
 ### error code
 
 ```js
@@ -154,8 +167,10 @@ option:
   BUILD_ERROR: 8,
   // yarn未安装
   NO_YARN_ERROR: 9,
-  // 生成zip文件错误
+  // 生成或解压zip文件错误
   ZIP_ERROR: 10,
+  // 执行(第三方)命令失败
+  RUN_COMMAND_ERROR: 11,
 
   // 初始化模板下载失败
   DOWNLOAD_ERROR: 100,

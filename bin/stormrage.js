@@ -17,5 +17,6 @@ program
   .command('devbuild [project]', '启动组件项目开发编译, 用于和app的联调')
   .command('fisinstall [components]', '使用 fis3 install 安装项目依赖')
   .alias('fi')
+  .command('replace [project]', '对项目内容进行(二次)替换')
 
   .parse(process.argv);
