@@ -58,7 +58,6 @@ option:
 - `-o, --output <path>` fis 项目的产出目录, 默认为 D:/debug-root, macOS 下为 ~/debug-root
 - `-c, --clean` fis 项目启动调试前, 先清除编译缓存
 - `--plugin-option <json>` fis 项目传递给插件的参数(must be a json)
-- `--env-file <fileName>` react 项目指定环境变量配置文件(默认为 .env), _示例: .env.pro-xcj, 请设置为 --env-file pro-xcj
 
 ---
 
@@ -98,7 +97,7 @@ option:
 - `--env <deployEnv>` 指定发布目标环境
 - `--room <deployRoom>` 指定发布目标机房
 - `--plugin-option <json>` fis 项目传递给插件的参数(must be a json)
-- `--env-file <fileName>` react 项目指定环境变量配置文件(默认为 `${env}-${room}`), _eg: .env.pro-xcj, 请设置为 --env-file pro-xcj
+- `--build-script <buildScript>` 指定编译脚本, eg: gulp web, config like react project
 
 ---
 
@@ -112,13 +111,27 @@ option:
 
 ---
 
-#### `stormrage docz [project]`
+#### `stormrage genmeta [project]`
+
+###### project - 指定项目, 未指定时默认为当前目录
+
+option:
+
+- `--pick` 选择需要提取元数据的组件
+
+---
+
+#### `stormrage doc [project]`
 
 ###### project - 指定项目, 未指定时默认为当前目录
 
 option:
 
 - `-p, --package <package>` react 项目为 mono 仓库时, 指定启动的 package
+- `-b, --build` 编译构建产出文档目录
+- `--env <deployEnv>` 指定发布目标环境
+- `--room <deployRoom>` 指定发布目标机房
+- `--plugin-option <json>` 传递给插件的参数(must be a json)
 
 ---
 
@@ -132,8 +145,6 @@ option:
 
 ---
 
----
-
 #### `stormrage replace [project]`
 
 ###### project - 已编译的项目结果
@@ -142,6 +153,20 @@ option:
 - `-c, --conf <path>` 指定替换内容的配置(js)文件, 返回一个 object, key 为被替换内容，value 为替换内容。eg: module.export = {"a": "b"};
 - `-o, --output <output>` 指定替换后的项目输出位置(如果路径以.zip结尾，则会输出压缩文件)
 - `-t, --output-type <outputType>` 指定输出格式 dir | zip，如果output未以.zip结尾 默认为 dir
+
+---
+
+### deployInfoConfig
+
+如需配置发布配置拉取url请在项目根目录新增文件 `.deployrc`
+schema:
+```js
+{
+  info: infoUrl, // 服务器信息
+  shell: shellUrl // 脚本
+}
+```
+> mono项目请在每个子项目中配置
 
 ---
 
@@ -177,4 +202,83 @@ option:
   //
 };
 
+```
+
+---
+
+### fis project
+
+```js
+// 通过此插件, 可修改项目配置
+// 多个插件的调用模式为 Waterfall, 即每个插件的返回值会传递给下一个插件
+const plugin = async context => {
+  return context;
+};
+
+// readOnly
+context : {
+    // tool, 命令行交互
+    inquirer, 
+    // tool, immer 修改配置
+    produce, 
+    // NODE_ENV
+    mode: development | production,
+    // 编译的media
+    mediaName: env-room, 
+    // 命令行传递给插件的参数
+    pluginOption,
+    config:{
+       // plugins: [plugin], // 编译插件
+       notUseHash, // 文件名不加hash
+       notOptimizeJs, // 不压缩js
+       notOptimizeCss, // 不压缩css
+       domain, // 项目部署域名(包含子路径)
+       pack, // 是否打包
+       packConf, // 打包配置
+       // 填写额外的忽略文件
+       ignoreFiles, 
+       vars, // 参数配置
+       envs, // 环境变量
+       // plugins:［plugin］, // 编译插件
+       themeVars, // less 替换变量
+       deploy:{
+           type: scp | zip | local, // 发布方式
+           subPath, // 仅 local 有效
+           zipFileNameSubjoin, // 生成的包文件附加名称, 用于同一项目通过代码剪裁生成不同结果时能生成不同名称的zip
+           machines: [{
+              machine: "machine1",
+              where: [{ "rootKey": "nginx.websrc", "path": "/xpath"}]
+              }]
+          }
+    },
+}
+```
+
+>默认忽略文件列表:
+https://github.com/gmsoft-happyCoding/stormrage/blob/master/lib/fis-scripts/default-ignore-files.js
+
+---
+
+### webpack project
+
+```js
+// 通过此插件, 可修改项目配置
+// 多个插件的调用模式为 Waterfall, 即每个插件的返回值会传递给下一个插件
+const plugin = async context => {
+  return context;
+};
+
+// readOnly
+context : {
+    // tool, 命令行交互
+    inquirer, 
+    // tool, immer 修改配置
+    produce,
+    // 命令行传递给插件的参数
+    pluginOption, 
+    config:{
+       envs, // 参数配置(环境变量), read by https://github.com/lorenwest/node-config
+       // plugins: [plugin], // 编译插件
+    },
+}
 ```
