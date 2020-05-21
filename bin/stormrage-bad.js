@@ -18,6 +18,7 @@ program
   .option('--env <deployEnv>', '指定发布目标环境')
   .option('--room <deployRoom>', '指定发布目标机房')
   .option('--plugin-option <json>', '传递给插件的参数(must be a json)', pluginOptionProcess)
+  .option('--build-script <buildScript>', '指定编译脚本, eg: gulp web, config like react project')
   .parse(process.argv);
 
 const projectDir = program.args[0]
