@@ -14889,10 +14889,10 @@ schema-utils@^2.2.0, schema-utils@^2.6.4:
     ajv "^6.10.2"
     ajv-keywords "^3.4.1"
 
-scp2-gmsoft@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.npm.taobao.org/scp2-gmsoft/download/scp2-gmsoft-0.3.0.tgz#2112f6a46cc1db87f2afc1f8cc55340ce1630226"
-  integrity sha1-IRL2pGzB24fyr8H4zFU0DOFjAiY=
+scp2-gmsoft@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.npm.taobao.org/scp2-gmsoft/download/scp2-gmsoft-0.3.1.tgz?cache=0&sync_timestamp=1594370497716&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fscp2-gmsoft%2Fdownload%2Fscp2-gmsoft-0.3.1.tgz#072d1caa044eea7c8b836ee7b7cf5f2f48b3e5a1"
+  integrity sha1-By0cqgRO6nyLg27nt89fL0iz5aE=
   dependencies:
     async "~0.9.0"
     glob "~7.0.3"
