@@ -23,7 +23,7 @@ gmsoft frontend cli
 - `test [project]` 启动测试
 - `bad | deploy [project]` 编译部署
 - `genapi [project]` 生成 api 代码
-- `docz [project]` 启动 docz 调试
+- `doc [project]` 启动 doc 调试
 - `fisinstall | fi [components]` 使用 fis3 install 安装项目依赖
 - `replace [project]`, 对项目内容进行(二次)替换
 
