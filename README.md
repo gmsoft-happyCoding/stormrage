@@ -199,7 +199,8 @@ schema:
 
   // 初始化模板下载失败
   DOWNLOAD_ERROR: 100,
-  //
+  // 未知错误
+  UNKNOWN_ERROR: 10000,
 };
 
 ```
