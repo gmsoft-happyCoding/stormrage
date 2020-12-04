@@ -1,5 +1,6 @@
 #!/usr/bin/env node --max_old_space_size=6144
 
+const os = require('os');
 const path = require('path');
 const program = require('commander');
 const start = require('../lib/commands/start');
@@ -19,7 +20,9 @@ const projectDir = program.args[0]
 
 const output =
   program.output ||
-  path.normalize(process.platform === 'darwin' ? path.resolve(os.homedir(), 'debug-root') : 'D:\\debug-root');
+  path.normalize(
+    process.platform === 'darwin' ? path.resolve(os.homedir(), 'debug-root') : 'D:\\debug-root'
+  );
 
 start({
   projectDir,
