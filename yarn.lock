@@ -6696,10 +6696,10 @@ eslint-config-airbnb@^18.2.0:
     object.assign "^4.1.2"
     object.entries "^1.1.2"
 
-eslint-config-gmsoft@^1.0.1:
-  version "1.0.1"
-  resolved "http://192.168.2.10:8081/repository/npm.gm/eslint-config-gmsoft/-/eslint-config-gmsoft-1.0.1.tgz#b5aa9a05c1ee52a2460c3fbe676c1ca743f0efa0"
-  integrity sha512-4tF77mg2zMv82bGhB1B+vk9D9Xbp8gwBBrdBiDJN6oJ9w0XyGPTuxFMT3PUTmqv55BDAuT/A/JK43hrA3QG5xw==
+eslint-config-gmsoft@^1.1.0:
+  version "1.1.0"
+  resolved "http://192.168.2.10:8081/repository/npm.gm/eslint-config-gmsoft/-/eslint-config-gmsoft-1.1.0.tgz#429bd937cc4f25c6ef566e2cf441d6297dd164db"
+  integrity sha512-J3rUEih3sIk3CdxviTPm05ElxoDE4ks86sh9czq08Dnfgq7Nfd4BPqHnvwI1PqcgSYXxstQQ9OoSW085y+T7PQ==
   dependencies:
     eslint-config-airbnb "^18.2.0"
     eslint-config-prettier "^7.0.0"
@@ -17693,10 +17693,8 @@ watchpack@^1.7.4:
   resolved "http://192.168.2.10:8081/repository/npm.gm/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
-    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
