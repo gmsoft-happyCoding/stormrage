@@ -9276,10 +9276,10 @@ immer@7.0.9:
   resolved "http://192.168.2.10:8081/repository/npm.gm/immer/-/immer-7.0.9.tgz#28e7552c21d39dd76feccd2b800b7bc86ee4a62e"
   integrity sha512-Vs/gxoM4DqNAYR7pugIxi0Xc8XAun/uy7AQu4fLLqaTBHxjOP9pJ266Q9MWA/ly4z6rAFZbvViOtihxUZ7O28A==
 
-immer@^3.2.0:
-  version "3.3.0"
-  resolved "https://registry.npm.taobao.org/immer/download/immer-3.3.0.tgz#ee7cf3a248d5dd2d4eedfbe7dfc1e9be8c72041d"
-  integrity sha1-7nzzokjV3S1O7fvn38HpvoxyBB0=
+immer@^9.0.1:
+  version "9.0.1"
+  resolved "http://192.168.2.10:8081/repository/npm.gm/immer/-/immer-9.0.1.tgz#1116368e051f9a0fd188c5136b6efb74ed69c57f"
+  integrity sha512-7CCw1DSgr8kKYXTYOI1qMM/f5qxT5vIVMeGLDCDX8CSxsggr1Sjdoha4OhsP0AZ1UvWbyZlILHvLjaynuu02Mg==
 
 import-cwd@^2.0.0:
   version "2.1.0"
@@ -11286,6 +11286,11 @@ lodash@^4.17.19, lodash@^4.17.20:
   version "4.17.20"
   resolved "http://192.168.2.10:8081/repository/npm.gm/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "http://192.168.2.10:8081/repository/npm.gm/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^2.1.0:
   version "2.2.0"
