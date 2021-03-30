@@ -6696,10 +6696,10 @@ eslint-config-airbnb@^18.2.0:
     object.assign "^4.1.2"
     object.entries "^1.1.2"
 
-eslint-config-gmsoft@^1.3.0:
-  version "1.3.0"
-  resolved "http://192.168.2.10:8081/repository/npm.gm/eslint-config-gmsoft/-/eslint-config-gmsoft-1.3.0.tgz#59aa39235f79d02fdc04cdf0e97f1c11994425fa"
-  integrity sha512-7fLPU5glqlBw0zn6XX4yNkOfTRcPUw4RFbVWZs1qR7UZe6KDcwj7unQv6PK7deUQPqjSOn2kwtqG0FrSqfMN4Q==
+eslint-config-gmsoft@^1.4.0:
+  version "1.4.0"
+  resolved "http://192.168.2.10:8081/repository/npm.gm/eslint-config-gmsoft/-/eslint-config-gmsoft-1.4.0.tgz#90d0f88b995cbc15565fd94d0e3410725768523e"
+  integrity sha512-vHdwMKcK6+a2cv1EJ7OXwQAqLNuru8nFVC+s8uoPJVvfGg/x7J/Iar7Orn3XSEv7rPJQ9yZEQgUraPUBNe9O0A==
   dependencies:
     eslint-config-airbnb "^18.2.0"
     eslint-config-prettier "^7.0.0"
