@@ -7821,6 +7821,11 @@ fis3-parser-less-gmsoft@^0.1.4:
   dependencies:
     less "^2.7.1"
 
+fis3-parser-replacer@^1.0.1:
+  version "1.0.1"
+  resolved "http://192.168.2.10:8081/repository/npm.gm/fis3-parser-replacer/-/fis3-parser-replacer-1.0.1.tgz#cf03538c7400e9b3817bd0922efdc253516a0ca4"
+  integrity sha512-cTmjL0zZMyD0WgOE3ovNXneN7zJQ+DBasVnYEHCprLjKb1vC2A5ZQuhv1/RrMiMq7OWKNsy/Mkd0rLqeJdv8mQ==
+
 fis3-parser-typescript-gmsoft@^1.2.4:
   version "1.2.4"
   resolved "https://registry.npm.taobao.org/fis3-parser-typescript-gmsoft/download/fis3-parser-typescript-gmsoft-1.2.4.tgz#2dc3473f98c9dc805ba5e3efa56d2ce32ae02b3a"

@@ -57,6 +57,7 @@
     "fis3-packager-deps-pack": "^0.1.2",
     "fis3-parser-html-uri": "^1.0.2",
     "fis3-parser-less-gmsoft": "^0.1.4",
+    "fis3-parser-replacer": "^1.0.1",
     "fis3-parser-typescript-gmsoft": "^1.2.4",
     "fis3-postpackager-loader": "^2.1.11",
     "fis3-preprocessor-compatible-ie-css2js": "^1.0.3",
