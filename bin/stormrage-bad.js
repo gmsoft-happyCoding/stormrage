@@ -11,6 +11,7 @@ program
   .option('--no-doc', '不生成组件文档')
   .option('--pick', '选择需要发布的组件, 组件项目有效')
   .option('--svn <url>', '通过svn url指定需要发布的项目, 优先级高于 [project]')
+  .option('--svn-checkout-dir <path>', 'svn拉取的源代码存放的地址, 默认为用户目录')
   .option(
     '--no-force-svn-checkout',
     '使用svn选项时, 若已有项目缓存, 不执行checkout操作, 直接使用缓存'
