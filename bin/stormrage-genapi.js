@@ -1,14 +1,11 @@
-#!/usr/bin/env node --max_old_space_size=6144
+#!/usr/bin/env node
 
-const path = require("path");
-const program = require("commander");
-const genapi = require("../lib/commands/genapi");
+const path = require('path');
+const program = require('commander');
+const genapi = require('../lib/commands/genapi');
 
 program
-  .option(
-    "-p, --package <package>",
-    "项目为mono仓库时, 指定需要生成api代码的package"
-  )
+  .option('-p, --package <package>', '项目为mono仓库时, 指定需要生成api代码的package')
   .parse(process.argv);
 
 const projectDir = program.args[0]
