@@ -1,0 +1,40 @@
+{
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "fork current(local)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-fork.js",
+      "args": ["current"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "fork current(remote)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-fork.js",
+      "args": [
+        "current",
+        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/New/main"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "fork current(old remote)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-fork.js",
+      "args": [
+        "current",
+        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/Old/"
+        // "-b",
+        // "trunk"
+      ]
+    }
+  ]
+}

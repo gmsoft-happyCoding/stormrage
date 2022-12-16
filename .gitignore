@@ -60,4 +60,5 @@ typings/
 # next.js build output
 .next
 
-.vscode
+# 将调试配置引入
+# .vscode
