@@ -19,7 +19,9 @@ program
   .command('fisinstall [components]', '使用 fis3 install 安装项目依赖')
   .alias('fi')
   .command('replace [project]', '对项目内容进行(二次)替换')
-  // CICD新增功能 2022-12-15 16:50:46
-  .command('fork <branchName> [projectPath]', '分支创建相关功能')
+  // CI/CD新增功能 2022-12-15 16:50:46
+  .command('fork <branchName> [projectPath]', '分支创建功能')
+  .command('release <branchName> [projectPath]', '分支封板功能')
+  .command('merge <branchName>', '分支合并功能')
 
   .parse(process.argv);

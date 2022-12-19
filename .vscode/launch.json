@@ -35,6 +35,72 @@
         // "-b",
         // "trunk"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "release(new)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-release.js",
+      "args": [
+        "main",
+        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/New/"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "release(new) --minor",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-release.js",
+      "args": [
+        "main",
+        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/New/",
+        "--minor"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "release(old)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-release.js",
+      "args": [
+        "login",
+        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/Old/"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "release(old) --minor",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-release.js",
+      "args": [
+        "current",
+        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/Old/",
+        "--minor"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "release(old) --major",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-release.js",
+      "args": [
+        "current",
+        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/Old/",
+        "--major"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "merge",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-merge.js",
+      "args": ["test1"]
     }
   ]
 }
