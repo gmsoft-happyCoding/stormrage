@@ -17,15 +17,15 @@ program
   )
   .action(async (branchName, projectPath, baseBranchesName) => {
     try {
-      // 获取项目的远端路径
+      console.log('[1/5] 获取本地项目的远端路径...');
       const safeProjectPath = projectPath ?? (await SvnHelper.getRootDirFromLocal());
-      // 获取当前的项目远端根路径
+      console.log('[2/5] 获取项目远端根路径...');
       const rootDir = await SvnHelper.getProjectRootDir(safeProjectPath);
-      // 构建原始分支路径
+      console.log('[3/5] 构建原始版本远端路径...');
       let originalBranchesPath = await SvnHelper.getBaseBranches(rootDir, baseBranchesName.base);
-      // 构建目标分支路径
+      console.log('[4/5] 构建目标分支路径...');
       const newBranchesPath = await SvnHelper.getNewBranches(rootDir, branchName);
-      // 执行分支创建
+      console.log('[5/5] 创建分支中...');
       await SvnHelper.fork(originalBranchesPath, newBranchesPath, branchName);
       console.log('[DONE] Fork 操作成功完成!');
     } catch (error) {
