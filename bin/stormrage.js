@@ -23,5 +23,6 @@ program
   .command('fork <branchName> [projectPath]', '分支创建功能')
   .command('release <branchName> [projectPath]', '分支封板功能')
   .command('merge <branchName>', '分支合并功能')
+  .command('make [localDir]', '打包编译产生成品库文件')
 
   .parse(process.argv);
