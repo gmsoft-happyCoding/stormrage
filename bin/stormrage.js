@@ -14,7 +14,7 @@ program
   .command('genmeta [project]', '生成组件元数据')
   .command('doc [project]', '启动doc调试')
   .command('bad [project]', '编译部署')
-  .alias('deploy')
+  // .alias('deploy')
   .command('devbuild [project]', '启动组件项目开发编译, 用于和app的联调')
   .command('fisinstall [components]', '使用 fis3 install 安装项目依赖')
   .alias('fi')
@@ -24,5 +24,6 @@ program
   .command('release <branchName> [projectPath]', '分支封板功能')
   .command('merge <branchName>', '分支合并功能')
   .command('make [localDir]', '打包编译产生成品库文件')
+  .command('deploy <env> <room>', '成品库文件部署')
 
   .parse(process.argv);
