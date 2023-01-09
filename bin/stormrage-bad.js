@@ -4,6 +4,7 @@ const path = require('path');
 const program = require('commander');
 const bad = require('../lib/commands/bad');
 const pluginOptionProcess = require('./utils/pluginOptionProcess');
+const { DeployHelper } = require('../lib/utils/DeployHelper');
 
 program
   .option('-p, --package <package>', 'react项目为mono仓库时, 指定要发布的package')
@@ -26,6 +27,6 @@ const projectDir = program.args[0]
   ? path.resolve(process.cwd(), path.normalize(program.args[0]))
   : process.cwd();
 
-const destDir = program.dest || path.normalize('D:\\发布结果');
+const destDir = program.dest || path.normalize(DeployHelper.DEFAULT_LOCAL_DEST_DIR);
 
 bad({ projectDir, destDir, program });
