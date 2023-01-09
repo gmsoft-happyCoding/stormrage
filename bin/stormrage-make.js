@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const program = require('commander');
+const { ErrorHelper } = require('../lib/utils/ErrorHelper');
 const make = require('../lib/commands/make');
 
 program
@@ -25,10 +26,14 @@ program
     '--no-force-svn-checkout',
     '使用svn选项时, 若已有项目缓存, 不执行checkout操作, 直接使用缓存'
   )
-  .action((localDir, opts) => {
-    make({
-      localDir,
-      opts,
-    });
+  .action(async (localDir, opts) => {
+    try {
+      await make({
+        localDir,
+        opts,
+      });
+    } catch (error) {
+      console.error('[ERROR]: %s', ErrorHelper.getErrorMessage(error.message, 'make'));
+    }
   })
   .parse(process.argv);
