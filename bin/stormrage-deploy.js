@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+const lodash = require('lodash');
+const path = require('path');
+const os = require('os');
+const fs = require('fs-extra');
 const program = require('commander');
 const { ErrorHelper } = require('../lib/utils/ErrorHelper');
 const deploy = require('../lib/commands/deploy');
@@ -25,11 +29,24 @@ program
     '标识此次部署为本地部署，path为发布结果存放位置, 默认为<d:/发布结果>，不传递则尝试根据相关配置进行上传'
   )
   .action(async (projectName, env, room, opts) => {
+    console.log('[1/6] 创建暂存目录...');
+    // 产生随机目录，并重建，然后切换到随机目录作为工作空间
+    const tempDir = lodash.random(0, 99999999999999).toString();
+    const workDir = path.resolve(os.homedir(), 'gm-make-temp', tempDir);
+    fs.removeSync(workDir);
+    fs.mkdirSync(workDir, { recursive: true });
+    process.chdir(workDir);
+
     try {
-      await deploy({ projectName, env, room, opts });
+      await deploy({ projectName, env, room, opts, workDir });
+
       console.log('[DONE] Deploy 操作成功完成！');
     } catch (error) {
       console.error('[ERROR]: %s', ErrorHelper.getErrorMessage(error.message, 'fork'));
     }
+
+    process.chdir(path.resolve(workDir, '..'));
+    // 删除缓存目录
+    fs.removeSync(workDir);
   })
   .parse(process.argv);

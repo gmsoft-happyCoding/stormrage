@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const chalk = require('chalk');
 const program = require('commander');
 const { ErrorHelper, ErrorCode } = require('../lib/utils/ErrorHelper');
 const { ReleaseHelper } = require('../lib/utils/ReleaseHelper');
@@ -57,7 +58,7 @@ program
           await ReleaseHelper.delete(releaseBranchesPath, '[Release] 封版原始分支删除');
         }
       } catch (error) {
-        console.error('[ERROR]: %s', ErrorHelper.getErrorMessage(error.message));
+        console.error(chalk.yellow('[WARN]: 分支删除失败，请检查是否存在文件锁'));
       }
       console.log(`[DONE] Release 操作成功完成，版本号：${versionName}`);
     } catch (error) {

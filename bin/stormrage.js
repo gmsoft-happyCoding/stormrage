@@ -25,5 +25,6 @@ program
   .command('merge <branchName>', '分支合并功能')
   .command('make [localDir]', '打包编译产生成品库文件')
   .command('deploy <projectName> <env> <room>', '成品库文件部署')
+  .command('env [localDir]', '显示目标项目对应环境的可用环境变量，帮助指令')
 
   .parse(process.argv);
