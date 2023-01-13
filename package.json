@@ -1,13 +1,13 @@
 {
   "name": "stormrage",
-  "version": "3.0.0",
+  "version": "3.0.0-alpha.2",
   "description": "gmsoft frontend cli",
   "bin": "bin/stormrage.js",
   "main": "bin/stormrage.js",
   "repository": "https://github.com/gmsoft-happyCoding/stormrage",
   "license": "MIT",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "http://192.168.2.10:8081/repository/npm.hosted/"
   },
   "dependencies": {
     "@babel/core": "^7.7.4",
