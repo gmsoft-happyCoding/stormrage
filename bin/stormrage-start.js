@@ -5,6 +5,7 @@ const path = require('path');
 const program = require('commander');
 const start = require('../lib/commands/start');
 const pluginOptionProcess = require('./utils/pluginOptionProcess');
+const { ErrorHelper } = require('../lib/utils/ErrorHelper');
 
 program
   .argument('[project]', '（可选）要启动的本地路径，默认为当前执行目录')
@@ -30,10 +31,14 @@ program
         process.platform === 'darwin' ? path.resolve(os.homedir(), 'debug-root') : 'D:\\debug-root'
       );
 
-    await start({
-      projectDir,
-      ...opts,
-      output,
-    });
+    try {
+      await start({
+        projectDir,
+        ...opts,
+        output,
+      });
+    } catch (error) {
+      console.error('[ERROR]: %s', ErrorHelper.getErrorMessage(error.message, 'start'));
+    }
   })
   .parse(process.argv);
