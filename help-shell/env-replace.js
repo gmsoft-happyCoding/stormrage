@@ -1,8 +1,9 @@
 /**
  * 使用说明：
  * 1. 将该文件放置在项目根目录下
- * 2. 脚本将帮助您快速替换项目内的环境变量引用，例如：${gateway.xxx} => ${business.gateway.xxx}
- * 3. 如果想要快速使用本脚本进行环境变量替换，请将项目的环境变量均定义在bussiness段下，包括网关，domain等等的
+ * 2. 脚本将帮助您快速替换项目内的环境变量引用，例如：${interface_xcj} => ${business.interface_xcj}
+ * 3. 如果想要使用脚本进行环境变量快速替换，请将项目的环境变量均定义在business段下，包括网关，domain等等的
+ * 4. 执行 node ./env-replace.js
  *
  * 风险：
  * 该脚本的替换规则是基于配置的动态正则表达式，并非基于AST，因此可能会存在误替换的风险
@@ -16,9 +17,9 @@
  * const url = `${open_api}/xxx`
  *
  * 阐释：
- * 上述场景中，在使用此脚本进行替换时，会将open_api替换为business.open_api，导致url变量的值变为
+ * 上述场景中，在使用此脚本进行替换时，会将${open_api}替换为${business.open_api}，导致url变量的值变为
  * const url = `${business.open_api}/xxx`
- * 从而导致代码执行错误，主要原因是基于正则的匹配无法鉴别命中的字符串到底是环境变量引用，还是ES6字符串模板语法
+ * 从而导致语法错误，主要原因是基于正则的匹配无法鉴别命中的字符串到底是环境变量引用，还是ES6字符串模板语法
  */
 
 const fs = require('fs');
@@ -52,13 +53,16 @@ const targetFileSuffix = [
 ];
 
 const rootDir = process.cwd();
+// 要替换的目标串模式，基于配置的动态正则表达式
 const regexpStr = `\\$\\{(?!(business|gateway|hosts|pdf-preview).)(${keys.join('|')})\\}`;
 const replacePattern = new RegExp(regexpStr, 'g');
 
+// 是否是文件
 function isFile(filePath) {
   return fs.statSync(filePath).isFile();
 }
 
+// 获取目标目录及子目录下所有文件的绝对路径
 function getAllFile(dirPath) {
   const currentPath = process.cwd();
   const allItems = fs.readdirSync(dirPath).filter(i => !ignoreDir.includes(i));
@@ -98,6 +102,7 @@ allFile.forEach(filePath => {
   const fileContent = readFileContent(filePath);
   const match = fileContent.match(replacePattern);
   if (match) {
+    // 命中规则，进行替换并写出
     const replacedContent = fileContent.replace(replacePattern, '${business.$2}');
     writeFileContent(filePath, replacedContent);
   }
