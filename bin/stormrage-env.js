@@ -2,10 +2,12 @@
 
 const program = require('commander');
 const { ErrorHelper } = require('../lib/utils/ErrorHelper');
-const showEnv = require('../lib/commands/env');
+const { showEnv } = require('../lib/commands/env');
+const { replaceEnv } = require('../lib/commands/env/env-replace');
 
 program
   .argument('[localDir]', '（可选）目标项目本地路径，默认为当前执行目录')
+  .option('--replace', '执行fis项目环境变量快速替换')
   .option('-r, --room <room>', '目标机房，不传递，则尝试获取所有机房的配置')
   .option(
     '-e, --env <env>',
@@ -20,8 +22,20 @@ program
     '-f, --field <field>',
     '额外从yml文件中注入到环境变量中的自定义配置段，CLI会将：business,hosts,gateway,\npdf-preview 这四个配置段进行注入，如果你需要额外的其他配置端，可以使用此参数指\n定，非特殊情况请将业务配置参数定义在business下，遵守字段规范，不要使用本参数\n样例（多个额外字段使用逗号进行分隔）：extra-params-a,extra-params-b'
   )
-  .action(async (localDir, opts = { env: 'test1' }) => {
+  .option(
+    '--file-ext <fileExt>',
+    '需要处理的文件后缀，多个后缀使用逗号进行分隔（不要带点），例：js,css'
+  )
+  .action(async (localDir, opts = { env: 'test1', replace: false }) => {
     try {
+      if (opts.replace) {
+        // 对项目进行环境变量快速替换
+        await replaceEnv({
+          localDir,
+          opts,
+        });
+        return;
+      }
       await showEnv({
         localDir,
         opts,
