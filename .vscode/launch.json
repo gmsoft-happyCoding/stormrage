@@ -101,6 +101,24 @@
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-merge.js",
       "args": ["test1"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "replace(gpwmain)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-env.js",
+      "args": ["--replace"],
+      "cwd": "D:\\Dev\\政府采购网门户\\branches\\cli-test\\gpwmain"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "replace(gpw-components)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-env.js",
+      "args": ["--replace"],
+      "cwd": "D:\\Dev\\政府采购网门户\\branches\\cli-test\\gpw-components"
     }
   ]
 }

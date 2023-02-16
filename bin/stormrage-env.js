@@ -2,12 +2,14 @@
 
 const program = require('commander');
 const { ErrorHelper } = require('../lib/utils/ErrorHelper');
-const { showEnv } = require('../lib/commands/env');
+const { envShow } = require('../lib/commands/env/env-show');
 const { replaceEnv } = require('../lib/commands/env/env-replace');
+const { createEnvTpl } = require('../lib/commands/env/create-env-tpl');
 
 program
   .argument('[localDir]', '（可选）目标项目本地路径，默认为当前执行目录')
   .option('--replace', '执行fis项目环境变量快速替换')
+  .option('--init', '创建一个替换配置文件模板')
   .option('-r, --room <room>', '目标机房，不传递，则尝试获取所有机房的配置')
   .option(
     '-e, --env <env>',
@@ -28,6 +30,11 @@ program
   )
   .action(async (localDir, opts = { env: 'test1', replace: false }) => {
     try {
+      if (opts.init) {
+        // 创建替换配置模板
+        await createEnvTpl();
+        return;
+      }
       if (opts.replace) {
         // 对项目进行环境变量快速替换
         await replaceEnv({
@@ -36,7 +43,7 @@ program
         });
         return;
       }
-      await showEnv({
+      await envShow({
         localDir,
         opts,
       });
