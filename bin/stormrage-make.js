@@ -33,7 +33,11 @@ program
         opts,
       });
     } catch (error) {
-      console.error('[ERROR]: %s', ErrorHelper.getErrorMessage(error.message, 'make'));
+      console.error(
+        '[ERROR]: %s\nStack:%s',
+        ErrorHelper.getErrorMessage(error.message, 'make'),
+        error.stack
+      );
     }
   })
   .parse(process.argv);
