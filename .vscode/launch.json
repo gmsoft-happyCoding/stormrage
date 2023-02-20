@@ -119,6 +119,15 @@
       "program": "${workspaceFolder}\\bin\\stormrage-env.js",
       "args": ["--replace"],
       "cwd": "D:\\Dev\\政府采购网门户\\branches\\cli-test\\gpw-components"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "make(execute-manage)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-make.js",
+      "args": ["-p", "app"],
+      "cwd": "D:\\Dev\\政采执行管理\\test\\execute-manage"
     }
   ]
 }

@@ -2,6 +2,7 @@
 
 const program = require('commander');
 const { ErrorHelper } = require('../lib/utils/ErrorHelper');
+const pluginOptionProcess = require('./utils/pluginOptionProcess');
 const make = require('../lib/commands/make');
 
 program
@@ -19,6 +20,7 @@ program
     '-f, --field <field>',
     '从yml文件中注入到环境变量中的自定义配置段，CLI会将：business,hosts,gateway,\npdf-preview 这四个配置段进行注入，如果你需要额外的其他配置端，可以使用此参数指\n定，非特殊情况请将业务配置参数定义在business下，遵守字段规范，不要使用本参数\n样例（多个额外字段使用逗号进行分隔）：extra-params-a,extra-params-b'
   )
+  .option('--plugin-option <json>', '传递给插件的参数(must be a json)', pluginOptionProcess)
   .option('-d, --dest [path]', '标识此次为本地Make，path为发布结果存放位置, 默认为<d:/发布结果>')
   .option('--svn <url>', '通过svn url指定需要发布的项目, 优先级高于 [project]')
   .option('--svn-checkout-dir <path>', 'svn拉取的源代码存放的地址, 默认为用户目录')
