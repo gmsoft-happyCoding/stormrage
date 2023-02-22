@@ -40,6 +40,7 @@ program
         ErrorHelper.getErrorMessage(error.message, 'make'),
         error.stack
       );
+      process.exit(1);
     }
   })
   .parse(process.argv);

@@ -63,6 +63,7 @@ program
       console.log(`[DONE] Release 操作成功完成，版本号：${versionName}`);
     } catch (error) {
       console.error('[ERROR]: %s', ErrorHelper.getErrorMessage(error.message, 'release'));
+      process.exit(1);
     }
   })
   .parse(process.argv);

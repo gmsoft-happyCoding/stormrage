@@ -30,6 +30,7 @@ program
       console.log('[DONE] Fork 操作成功完成!');
     } catch (error) {
       console.error('[ERROR]: %s', ErrorHelper.getErrorMessage(error.message, 'fork'));
+      process.exit(1);
     }
   })
   .parse(process.argv);
