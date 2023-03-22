@@ -42,12 +42,11 @@ program
 
       console.log('[DONE] Deploy 操作成功完成！');
     } catch (error) {
-      console.error('[ERROR]: %s', ErrorHelper.getErrorMessage(error.message, 'fork'));
+      console.error('[ERROR]: %s', ErrorHelper.getErrorMessage(error.message, 'deploy'));
+      process.chdir(path.resolve(workDir, '..'));
+      // 删除缓存目录
+      fs.removeSync(workDir);
       process.exit(1);
     }
-
-    process.chdir(path.resolve(workDir, '..'));
-    // 删除缓存目录
-    fs.removeSync(workDir);
   })
   .parse(process.argv);

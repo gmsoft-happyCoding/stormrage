@@ -128,6 +128,31 @@
       "program": "${workspaceFolder}\\bin\\stormrage-make.js",
       "args": ["-p", "app", "-d"],
       "cwd": "D:\\Dev\\政采执行管理\\cli-test\\execute-manage"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "make-reinstall(execute-manage)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-make.js",
+      "args": ["-p", "app", "-d", "--reinstall"],
+      "cwd": "D:\\Dev\\政采执行管理\\cli-test\\execute-manage"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "deploy-local(execute-manage)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
+      "args": ["app-execute-manage", "test1", "zcj", "-d"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "deploy-test1(execute-manage)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
+      "args": ["app-execute-manage", "test1", "zcj"]
     }
   ]
 }
