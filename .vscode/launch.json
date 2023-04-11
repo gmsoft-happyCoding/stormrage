@@ -153,6 +153,22 @@
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
       "args": ["app-execute-manage", "test1", "zcj"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "deploy-local(gpwmain)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
+      "args": ["gpwmain", "test1", "zcj", "-d"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "deploy-test2(gpwmain)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
+      "args": ["gpwmain", "test2", "zcj"]
     }
   ]
 }
