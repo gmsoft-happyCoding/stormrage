@@ -29,16 +29,30 @@ program
     '标识此次部署为本地部署，path为发布结果存放位置, 默认为<d:/发布结果>，不传递则尝试根据相关配置进行上传'
   )
   .action(async (projectName, env, room, opts) => {
-    console.log('[1/6] 创建暂存目录...');
-    // 产生随机目录，并重建，然后切换到随机目录作为工作空间
-    const tempDir = lodash.random(0, 99999999999999).toString();
-    const workDir = path.resolve(os.homedir(), 'gm-make-temp', tempDir);
-    fs.removeSync(workDir);
-    fs.mkdirSync(workDir, { recursive: true });
-    process.chdir(workDir);
-
     try {
-      await deploy({ projectName, env, room, opts, workDir });
+      // 清理暂存文件夹：命令用法 stormrage deploy clear * *
+      if (projectName === 'clear') {
+        const deployTempDir = path.resolve(os.homedir(), 'gm-make-temp');
+        console.log('[1/1] 暂存目录清理中...');
+        fs.emptyDir(deployTempDir);
+      } else {
+        console.log('[1/6] 创建暂存目录...');
+        // 产生随机目录，并重建，然后切换到随机目录作为工作空间
+        const tempDir = lodash.random(0, 99999999999999).toString();
+        const workDir = path.resolve(os.homedir(), 'gm-make-temp', tempDir);
+
+        fs.removeSync(workDir);
+        fs.mkdirSync(workDir, { recursive: true });
+        process.chdir(workDir);
+
+        await deploy({ projectName, env, room, opts, workDir });
+
+        // 清理工作空间
+        console.log('[*] 清理工作空间...');
+        process.chdir(path.resolve(workDir, '..'));
+        // 删除缓存目录
+        fs.removeSync(workDir);
+      }
 
       console.log('[DONE] Deploy 操作成功完成！');
     } catch (error) {
