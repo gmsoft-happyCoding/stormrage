@@ -7,7 +7,10 @@ const make = require('../lib/commands/make');
 
 program
   .argument('[localDir]', '（可选）要打包的本地路径，默认为当前执行目录')
-  .option('-p, --package <package>', 'react项目为mono仓库时, 指定要发布的package')
+  .option(
+    '-p, --package <package>',
+    'react项目为mono仓库时, 指定要发布的package，可选值：app | components'
+  )
   .option(
     '-e, --env <env>',
     '打包所使用的环境变量参考哪个环境去构建，目前默认使用test1的环境变量去构建\n如果有特殊需求，需要使用其他环境的配置进行构建可以使用此参数指定，\n一般情况下请遵守相关规范创建test1的环境变量配置，不要使用本参数'

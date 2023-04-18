@@ -7,6 +7,14 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "test",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\test\\devTest.js",
+      "args": []
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "fork current(local)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-fork.js",
@@ -119,6 +127,15 @@
       "program": "${workspaceFolder}\\bin\\stormrage-env.js",
       "args": ["--replace"],
       "cwd": "D:\\Dev\\政府采购网门户\\branches\\cli-test\\gpw-components"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "make(gpwmain)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-make.js",
+      "args": [],
+      "cwd": "D:\\Dev\\政府采购网门户\\branches\\cli-test\\gpwmain"
     },
     {
       "type": "node",

@@ -7,7 +7,10 @@ const pluginOptionProcess = require('./utils/pluginOptionProcess');
 const { DeployHelper } = require('../lib/utils/DeployHelper');
 
 program
-  .option('-p, --package <package>', 'react项目为mono仓库时, 指定要发布的package')
+  .option(
+    '-p, --package <package>',
+    'react项目为mono仓库时, 指定要发布的package，可选值：app | components'
+  )
   .option('-d, --dest <path>', '发布结果存放位置, 默认为<d:/发布结果>')
   .option('--no-doc', '不生成组件文档')
   .option('--pick', '选择需要发布的组件, 组件项目有效')
