@@ -150,23 +150,57 @@ option:
 ###### project - 已编译的项目结果
 
 option:
+
 - `-c, --conf <path>` 指定替换内容的配置(js)文件, 返回一个 object, key 为被替换内容，value 为替换内容。eg: module.export = {"a": "b"};
-- `-o, --output <output>` 指定替换后的项目输出位置(如果路径以.zip结尾，则会输出压缩文件)
-- `-t, --output-type <outputType>` 指定输出格式 dir | zip，如果output未以.zip结尾 默认为 dir
+- `-o, --output <output>` 指定替换后的项目输出位置(如果路径以.zip 结尾，则会输出压缩文件)
+- `-t, --output-type <outputType>` 指定输出格式 dir | zip，如果 output 未以.zip 结尾 默认为 dir
 
 ---
 
+#### `stormrage-make [options] [localDir]`
+
+###### localDir - 本地项目目录
+
+option:
+
+- `-p, --package <package>` react 项目为 mono 仓库时, 指定要发布的 package，可选值：app | components
+- `-e, --env <env>` 打包所使用的环境变量参考哪个环境去构建，目前默认使用 test1 的环境变量去构建,如果有特殊需求，需要使用其他环境的配置进行构建可以使用此参数指定，一般情况下请遵守相关规范创建 test1 的环境变量配置，不要使用本参数
+- `-c, --conf <conf>` 打包所使用的环境变量 yml 文件名称（对 yml 后缀名不敏感，自适配），如果有特殊情况，需要指定配置文件名称，可以使用此参数进行配置，比如同项目发布到私有机房的定制化版本，除此之外请遵守配置文件命名规范，不要使用本参数
+- `-f, --field <field>` 从 yml 文件中注入到环境变量中的自定义配置段，CLI 会将：business,hosts,gateway,pdf-preview 这四个配置段进行注入，如果你需要额外的其他配置端，可以使用此参数指定，非特殊情况请将业务配置参数定义在 business 下，遵守字段规范，不要使用本参数样例（多个额外字段使用逗号进行分隔）：extra-params-a,extra-params-b
+- `--plugin-option <json>` 传递给插件的参数(must be a json)
+- `--install` 强制执行依赖安装，即使已经存在依赖
+- `--reinstall` 删除依赖，重新安装依赖
+- `-d, --dest [path]` 标识此次为本地 Make，产生的目标文件不会上传到成品库，而是存放到本地，path 为发布结果存放位置, 默认为`<d:/发布结果>`
+
+#### `stormrage-deploy [options] <projectName> <env> <room>`
+
+###### projectName - 成品库名称
+
+###### env - 发布目标环境
+
+###### room - 发布目标机房
+
+option:
+
+- `-t, --target <targetVersion>` 明确指定部署所使用的成品版本，不传递，则使用最新的 Latest 版本
+- `-c, --conf <configFileName> ` 明确指定部署所使用的配置文件名，带不带后缀无关紧要，CLI 将尽可能去寻找
+- `-cl, --confLabel <label> ` 明确指定部署所使用的配置文件名的附加标签，默认为：1
+- `--ignoreDir <dirs>` 部署时明确指定忽略进行 Hash 重算的目录，多个目录用逗号分隔。此选项对 React 项目意义不大，主要针对 Fis 项目，用于 Deploy 提速，当明确知道某些路径不存在环境变量，不需要进行 Hash 重算时，可以指定此选项进行跳过来加速
+- `-d, --dest [path]` 标识此次部署为本地部署，path 为发布结果存放位置, 默认为<d:/发布结果>，不传递则尝试根据相关配置进行上传
+
 ### deployInfoConfig
 
-如需配置发布配置拉取url请在项目根目录新增文件 `.deployrc`
+如需配置发布配置拉取 url 请在项目根目录新增文件 `.deployrc`
 schema:
+
 ```js
 {
   info: infoUrl, // 服务器信息
   shell: shellUrl // 脚本
 }
 ```
-> mono项目请在每个子项目中配置
+
+> mono 项目请在每个子项目中配置
 
 ---
 
@@ -221,13 +255,13 @@ const plugin = async context => {
 // readOnly
 context : {
     // tool, 命令行交互
-    inquirer, 
+    inquirer,
     // tool, immer 修改配置
-    produce, 
+    produce,
     // NODE_ENV
     mode: development | production,
     // 编译的media
-    mediaName: env-room, 
+    mediaName: env-room,
     // 命令行传递给插件的参数
     pluginOption,
     config:{
@@ -239,7 +273,7 @@ context : {
        pack, // 是否打包
        packConf, // 打包配置
        // 填写额外的忽略文件
-       ignoreFiles, 
+       ignoreFiles,
        vars, // 参数配置
        envs, // 环境变量
        // plugins:［plugin］, // 编译插件
@@ -257,8 +291,8 @@ context : {
 }
 ```
 
->默认忽略文件列表:
-https://github.com/gmsoft-happyCoding/stormrage/blob/master/lib/fis-scripts/default-ignore-files.js
+> 默认忽略文件列表:
+> https://github.com/gmsoft-happyCoding/stormrage/blob/master/lib/fis-scripts/default-ignore-files.js
 
 ---
 
@@ -274,11 +308,11 @@ const plugin = async context => {
 // readOnly
 context : {
     // tool, 命令行交互
-    inquirer, 
+    inquirer,
     // tool, immer 修改配置
     produce,
     // 命令行传递给插件的参数
-    pluginOption, 
+    pluginOption,
     config:{
        envs, // 参数配置(环境变量), read by https://github.com/lorenwest/node-config
        // plugins: [plugin], // 编译插件
