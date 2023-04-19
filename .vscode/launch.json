@@ -177,7 +177,7 @@
       "name": "deploy-local(gpwmain)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
-      "args": ["gpwmain", "test1", "zcj", "-d"]
+      "args": ["gpwmain", "test1", "zcj", "-d", "--ignoreDir", "modules/.*"]
     },
     {
       "type": "node",
