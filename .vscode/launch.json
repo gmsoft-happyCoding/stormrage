@@ -186,6 +186,19 @@
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
       "args": ["gpwmain", "test2", "zcj"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "make-svn(execute-manage)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-make.js",
+      "args": [
+        "-p",
+        "app",
+        "--svn",
+        "https://192.168.2.10:8080/svn/GovProEleTrade/P20高效电子交易/P2020采购执行管理/C3前端应用/政采执行管理/branches/cli-test/execute-manage"
+      ]
     }
   ]
 }
