@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-const lodash = require('lodash');
 const path = require('path');
 const os = require('os');
 const fs = require('fs-extra');
 const program = require('commander');
 const { ErrorHelper } = require('../lib/utils/ErrorHelper');
 const deploy = require('../lib/commands/deploy');
+const { FileHelper } = require('../lib/utils/FileHelper');
 
 program
   .argument(
@@ -34,13 +34,12 @@ program
   )
   .action(async (projectName, env, room, opts) => {
     // 产生随机目录，并重建，然后切换到随机目录作为工作空间
-    const tempDir = lodash.random(0, 99999999999999).toString();
-    const workDir = path.resolve(os.homedir(), 'gm-make-temp', tempDir);
+    const workDir = FileHelper.getTempDirPath();
 
     try {
       // 清理暂存文件夹：命令用法 stormrage deploy clear * *
       if (projectName === 'clear') {
-        const deployTempDir = path.resolve(os.homedir(), 'gm-make-temp');
+        const deployTempDir = path.resolve(os.homedir(), FileHelper.tempDir);
         console.log('[*] 暂存目录清理中...');
         fs.emptyDir(deployTempDir);
       } else {

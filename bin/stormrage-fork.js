@@ -17,16 +17,18 @@ program
   )
   .action(async (branchName, projectPath, baseBranchesName) => {
     try {
-      console.log('[1/5] 获取本地项目的远端路径...');
+      console.log('[1/6] 获取本地项目的远端路径...');
       const safeProjectPath = projectPath ?? (await SvnHelper.getRootDirFromLocal());
-      console.log('[2/5] 获取项目远端根路径...');
+      console.log('[2/6] 获取项目远端根路径...');
       const rootDir = await SvnHelper.getProjectRootDir(safeProjectPath);
-      console.log('[3/5] 构建原始版本远端路径...');
+      console.log('[3/6] 构建原始版本远端路径...');
       let originalBranchesPath = await SvnHelper.getBaseBranches(rootDir, baseBranchesName.base);
-      console.log('[4/5] 构建目标分支路径...');
+      console.log('[4/6] 构建目标分支路径...');
       const newBranchesPath = await SvnHelper.getNewBranches(rootDir, branchName);
-      console.log('[5/5] 创建分支中...');
+      console.log('[5/6] 创建分支中...');
       await SvnHelper.fork(originalBranchesPath, newBranchesPath, branchName);
+      console.log('[6/6] 更新分支版本号...');
+      await SvnHelper.updateNewBranchesVersion(newBranchesPath);
       console.log('[DONE] Fork 操作成功完成!');
     } catch (error) {
       console.error('[ERROR]: %s', ErrorHelper.getErrorMessage(error.message, 'fork'));
