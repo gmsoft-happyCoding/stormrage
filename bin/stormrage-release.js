@@ -4,12 +4,12 @@ const chalk = require('chalk');
 const program = require('commander');
 const { ErrorHelper, ErrorCode } = require('../lib/utils/ErrorHelper');
 const { ReleaseHelper } = require('../lib/utils/ReleaseHelper');
-const { snapShootDirName } = require('../lib/utils/SvnHelper');
+const { snapShootDirName, SvnHelper } = require('../lib/utils/SvnHelper');
 
 program
   .argument(
     '<branchName>',
-    '（必须）封板的分支名称，对于主从管理模式，此参数请固定传递main，对于传统管理模式的项目\n将在branches下寻找对应版本（trunk则在根路径下尝试匹配）。'
+    '（必须）封板的分支名称，对于主从管理模式，此参数请固定传递:"master"，对于传统管理模式的项目\n将在branches下寻找对应版本（trunk则在根路径下尝试匹配）。'
   )
   .argument(
     '[projectPath]',
@@ -36,22 +36,42 @@ program
   .action(async (branchName, projectPath) => {
     const options = program.opts();
     try {
-      console.log('[1/5] 获取本地项目的远端路径...');
+      if (options.tag && !ReleaseHelper.normalPattern.test(options.tag)) {
+        ErrorHelper.throwError(ErrorCode.ERROR_RELEASE_TAG_VERSION_INVALID);
+      }
+
+      console.log('[1/6] 获取本地项目的远端路径...');
       const safeProjectPath = projectPath ?? (await ReleaseHelper.getRootDirFromLocal());
-      console.log('[2/5] 获取项目远端根路径...');
+      console.log('[2/6] 获取项目远端根路径...');
       const rootDir = await ReleaseHelper.getProjectRootDir(safeProjectPath);
-      console.log('[3/5] 构建原始版本远端路径...');
+      console.log('[3/6] 构建原始版本远端路径...');
       // 构建封版分支路径：如果是主从分支管理模式，将直接使用主分支作为封板分支；如果是传统模式，则使用传入的分支名进行封版
       let releaseBranchesPath = await ReleaseHelper.getReleaseBranches(rootDir, branchName);
-      console.log('[4/5] 构建封版版本远端路径...');
+      console.log('[4/6] 构建封版版本远端路径...');
       let targetBranchesPath = await ReleaseHelper.getSnapshotVersion(rootDir, options);
       // 版本名称，用于封版的common拼接
       const versionName = targetBranchesPath.match(/(?:\d+\.){2}\d+$/)[0];
 
-      console.log('[5/5] 正在Fork目标版本...');
-      ReleaseHelper.fork(releaseBranchesPath, targetBranchesPath, versionName);
+      const branchIsExists = await SvnHelper.dirIsExist(targetBranchesPath);
+      if (branchIsExists) {
+        ErrorHelper.throwError(ErrorCode.ERROR_RELEASE_TAG_VERSION_IS_EXIST);
+      }
 
-      // 如果是传统的管理模式，删除原始分支
+      const nextVersion = ReleaseHelper.getNextVersion(versionName, options);
+
+      if (options.tag) {
+        console.log('[*] 发现封板Tag标记，正在更新Master分支版本号...');
+        await SvnHelper.updateNewBranchesVersion(releaseBranchesPath, versionName);
+      }
+
+      console.log('[5/6] 正在Fork目标版本...');
+      await ReleaseHelper.fork(releaseBranchesPath, targetBranchesPath, versionName);
+
+      console.log('[6/6] 更新Master版本号...');
+
+      await SvnHelper.updateNewBranchesVersion(releaseBranchesPath, nextVersion);
+
+      // 如果传递了删除原始分支的参数，则删除原始分支
       try {
         if (options.deleteSource) {
           console.log('[*] 删除原始分支...');
@@ -60,9 +80,15 @@ program
       } catch (error) {
         console.error(chalk.yellow('[WARN]: 分支删除失败，请检查是否存在文件锁'));
       }
-      console.log(`[DONE] Release 操作成功完成，版本号：${versionName}`);
+      console.log(
+        `[DONE] Release 操作成功完成，封板版本号：${versionName}，当前Master版本号：${nextVersion}`
+      );
     } catch (error) {
-      console.error('[ERROR]: %s', ErrorHelper.getErrorMessage(error.message, 'release'));
+      console.error(
+        '[ERROR]: %s',
+        ErrorHelper.getErrorMessage(error.message, 'release'),
+        error.stack
+      );
       process.exit(1);
     }
   })
