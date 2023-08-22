@@ -166,10 +166,10 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "deploy-test1(execute-manage)",
+      "name": "deploy-test1(test-mono-app)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
-      "args": ["app-execute-manage", "test1", "zcj"]
+      "args": ["test-mono-app", "test1", "zcj"]
     },
     {
       "type": "node",

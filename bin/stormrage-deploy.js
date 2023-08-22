@@ -44,8 +44,6 @@ program
         fs.emptyDir(deployTempDir);
       } else {
         console.log('[1/6] 创建暂存目录...');
-        console.log('workDir: ', workDir);
-
         fs.removeSync(workDir);
         fs.mkdirSync(workDir, { recursive: true });
         process.chdir(workDir);
