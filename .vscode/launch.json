@@ -169,7 +169,7 @@
       "name": "deploy-test1(test-mono-app)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
-      "args": ["test-mono-app", "test1", "zcj"]
+      "args": ["test-mono-app", "test1", "zcj", "-t", "1.0.0-4"]
     },
     {
       "type": "node",
