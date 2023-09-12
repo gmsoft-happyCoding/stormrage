@@ -18,89 +18,8 @@
       "name": "fork current(local)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-fork.js",
-      "args": ["current"]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "fork current(remote)",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\bin\\stormrage-fork.js",
-      "args": [
-        "current",
-        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/New/main"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "fork current(old remote)",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\bin\\stormrage-fork.js",
-      "args": [
-        "current",
-        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/Old/"
-        // "-b",
-        // "trunk"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "release(new)",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\bin\\stormrage-release.js",
-      "args": [
-        "main",
-        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/New/"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "release(new) --minor",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\bin\\stormrage-release.js",
-      "args": [
-        "main",
-        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/New/",
-        "--minor"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "release(old)",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\bin\\stormrage-release.js",
-      "args": [
-        "login",
-        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/Old/"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "release(old) --minor",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\bin\\stormrage-release.js",
-      "args": [
-        "current",
-        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/Old/",
-        "--minor"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "release(old) --major",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\bin\\stormrage-release.js",
-      "args": [
-        "current",
-        "https://192.168.2.10:8080/svn/GmsoftPlatform/B持续交付与自动化/CICD开发测试目录/Old/",
-        "--major"
-      ]
+      "args": ["test-fork"],
+      "cwd": "D:\\Dev\\P99练习\\C3前端应用\\Stormrage3+版本升级（React-App项目）\\master"
     },
     {
       "type": "node",
@@ -198,6 +117,64 @@
         "app",
         "--svn",
         "https://192.168.2.10:8080/svn/GovProEleTrade/P20高效电子交易/P2020采购执行管理/C3前端应用/政采执行管理/branches/cli-test/execute-manage"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "make-local-test-app",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-make.js",
+      "cwd": "D:\\Dev\\P99练习\\C3前端应用\\Stormrage3+版本升级（React-App项目）\\branches\\pybtest\\test-app",
+      "args": []
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "release-master",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-release.js",
+      "args": [
+        "master",
+        "https://192.168.2.10:8080/svn/GovProEleTrade/P99练习/C3前端应用/Stormrage3+版本升级（React-App项目）/master"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "merge-master",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-merge.js",
+      "cwd": "D:\\Dev\\P99练习\\C3前端应用\\Stormrage3+版本升级（React-App项目）\\master\\test-app",
+      "args": [
+        "test-fork",
+        "https://192.168.2.10:8080/svn/GovProEleTrade/P99练习/C3前端应用/Stormrage3+版本升级（React-App项目）/master"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "merge-master-patch",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-merge.js",
+      "cwd": "D:\\Dev\\P99练习\\C3前端应用\\Stormrage3+版本升级（React-App项目）\\master\\test-app",
+      "args": [
+        "test-fork",
+        "https://192.168.2.10:8080/svn/GovProEleTrade/P99练习/C3前端应用/Stormrage3+版本升级（React-App项目）/master",
+        "--patch"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "merge-master-delete",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-merge.js",
+      "cwd": "D:\\Dev\\P99练习\\C3前端应用\\Stormrage3+版本升级（React-App项目）\\master\\test-app",
+      "args": [
+        "test-fork",
+        "https://192.168.2.10:8080/svn/GovProEleTrade/P99练习/C3前端应用/Stormrage3+版本升级（React-App项目）/master",
+        "--delete-source"
       ]
     }
   ]

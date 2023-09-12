@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const { ErrorHelper, ErrorCode } = require('../lib/utils/ErrorHelper');
+const { ErrorHelper } = require('../lib/utils/ErrorHelper');
+const { ReleaseHelper } = require('../lib/utils/ReleaseHelper');
 const { SvnHelper } = require('../lib/utils/SvnHelper');
+const { UrlHelper } = require('../lib/utils/UrlHelper');
 
 program
   .argument('<branchName>', '（必须）创建的分支名称，如果已存在对应的分支，则拒绝执行，并抛出异常')
@@ -18,7 +20,9 @@ program
   .action(async (branchName, projectPath, baseBranchesName) => {
     try {
       console.log('[1/6] 获取本地项目的远端路径...');
-      const safeProjectPath = projectPath ?? (await SvnHelper.getRootDirFromLocal());
+      const safeProjectPath = UrlHelper.isLink(projectPath)
+        ? projectPath
+        : await ReleaseHelper.getRootDirFromLocal(projectPath);
       console.log('[2/6] 获取项目远端根路径...');
       const rootDir = await SvnHelper.getProjectRootDir(safeProjectPath);
       console.log('[3/6] 构建原始版本远端路径...');

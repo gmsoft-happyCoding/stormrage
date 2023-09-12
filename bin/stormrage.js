@@ -22,7 +22,7 @@ program
   // CI/CD新增功能 2022-12-15 16:50:46
   .command('fork <branchName> [projectPath]', '分支创建功能')
   .command('release <branchName> [projectPath]', '分支封板功能')
-  .command('merge <branchName>', '分支合并功能')
+  .command('merge <branchName> [projectPath]', '分支合并功能')
   .command('make [localDir]', '打包编译产生成品库文件')
   .command('deploy <projectName> <env> <room>', '成品库文件部署')
   .command('env [localDir]', '显示目标项目对应环境的可用环境变量，帮助指令')
