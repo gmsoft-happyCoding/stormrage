@@ -70,11 +70,11 @@ program
       // 版本名称，用于封版的common拼接，更新项目内的版本号
       const releaseVersion = await ReleaseHelper.getReleaseVersion(releaseBranchesPath);
 
-      console.log('[5/6] 正在更新Master分支版本号...');
-      await SvnHelper.updateNewBranchesVersion(releaseBranchesPath, releaseVersion);
+      console.log('[5/6] 正在Fork目标版本...');
+      await ReleaseHelper.fork(releaseBranchesPath, targetBranchesPath, masterMainVersion);
 
-      console.log('[6/6] 正在Fork目标版本...');
-      await ReleaseHelper.fork(releaseBranchesPath, targetBranchesPath, releaseVersion);
+      console.log('[6/6] 正在更新Master分支版本号...');
+      await SvnHelper.updateNewBranchesVersion(releaseBranchesPath, releaseVersion);
 
       // 如果传递了删除原始分支的参数，则删除原始分支
       try {
