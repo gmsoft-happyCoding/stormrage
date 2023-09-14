@@ -109,6 +109,14 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "deploy-test-app",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
+      "args": ["test-app", "dev1", "xcj", "-tm", "1.12.24-bugfix-01"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "make-svn(execute-manage)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-make.js",

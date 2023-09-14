@@ -17,7 +17,11 @@ program
   .argument('<room>', '（必须）部署的目标机房')
   .option(
     '-t, --target <targetVersion>',
-    '明确指定部署所使用的成品版本，不传递，则使用最新的Latest版本'
+    '明确指定部署所使用的成品版本，不传递，则使用最新的Latest版本，该参数不经过任何版本处理，将直接应用在npm版本中，该参数优先级高于 --targetMake'
+  )
+  .option(
+    '-tm, --targetMake <targetVersion>',
+    '指定部署所使用的成品版本，不传递，则使用最新的Latest版本，该参数将自动在尾部增加最新的Make版本号，尾部Make版本号格式样例：-1 ，该参数优先级低于 --target'
   )
   .option(
     '-c, --conf <configFileName>',
