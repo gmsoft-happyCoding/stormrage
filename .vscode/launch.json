@@ -24,6 +24,15 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "bad",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-bad.js",
+      "args": ["-d", "D:/发布结果", "-p", "app", "--env", "test1", "--room", "zcj"],
+      "cwd": "D:\\Dev\\在线开评标\\trunk\\online-assessment"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "merge",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-merge.js",
@@ -112,7 +121,7 @@
       "name": "deploy-test-app",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
-      "args": ["test-app", "dev1", "xcj", "-tm", "1.12.24-bugfix-01"]
+      "args": ["-d", "D:/发布结果", "test-app", "pro", "xcj", "-tm", "1.12.24-bugfix-01"]
     },
     {
       "type": "node",
