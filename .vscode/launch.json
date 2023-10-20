@@ -118,10 +118,10 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "deploy-test-app",
+      "name": "deploy-djc-productctr",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
-      "args": ["-d", "D:/发布结果", "test-app", "pro", "xcj", "-tm", "1.12.24-bugfix-01"]
+      "args": ["djc-productctr", "test1", "xcj", "-d"]
     },
     {
       "type": "node",
