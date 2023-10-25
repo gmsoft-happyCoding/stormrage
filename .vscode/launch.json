@@ -126,6 +126,14 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "deploy-wholesale-backstage",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
+      "args": ["wholesale-backstage", "dev1", "xcj"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "make-svn(execute-manage)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-make.js",
