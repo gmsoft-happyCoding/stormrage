@@ -71,8 +71,8 @@
       "name": "make(execute-manage)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-make.js",
-      "args": ["-p", "app", "-d"],
-      "cwd": "D:\\Dev\\政采执行管理\\cli-test\\execute-manage"
+      "args": ["-p", "app"],
+      "cwd": "D:\\Dev\\政采执行管理\\branches\\cli-test\\execute-manage"
     },
     {
       "type": "node",
@@ -81,7 +81,7 @@
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-make.js",
       "args": ["-p", "app", "-d", "--reinstall"],
-      "cwd": "D:\\Dev\\政采执行管理\\cli-test\\execute-manage"
+      "cwd": "D:\\Dev\\政采执行管理\\branches\\cli-test\\execute-manage"
     },
     {
       "type": "node",
@@ -90,6 +90,14 @@
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
       "args": ["app-execute-manage", "test1", "zcj", "-d"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "deploy-pro(execute-manage)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
+      "args": ["app-execute-manage", "pro", "zcj", "-d"]
     },
     {
       "type": "node",
