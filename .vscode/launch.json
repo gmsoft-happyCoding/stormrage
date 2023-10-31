@@ -7,10 +7,11 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "test",
+      "name": "start-wholesale",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\test\\devTest.js",
-      "args": []
+      "program": "${workspaceFolder}\\bin\\stormrage-start.js",
+      "cwd": "D:\\Dev\\外包项目\\批发商城\\master\\xcj-wholesale",
+      "args": ["--next"]
     },
     {
       "type": "node",
@@ -102,10 +103,10 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "deploy-test1(test-mono-app)",
+      "name": "deploy-test1(wholesale)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
-      "args": ["test-mono-app", "test1", "zcj", "-t", "1.0.0-4"]
+      "args": ["wholesale", "test1", "zcj"]
     },
     {
       "type": "node",
