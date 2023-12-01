@@ -11,6 +11,7 @@ program
   .option('--pick', '选择需要发布的组件')
   .option('-n, --next', '标记当前使用新的配置加载模式')
   .option('--conf <conFileName>', '启动时使用的配置文件名称')
+  .option('--debugConf <conFileName>', '启动时使用的debug配置文件名称，默认：debug.yml')
   .option('--plugin-option <json>', '传递给插件的参数(must be a json)', pluginOptionProcess)
   .action(async (project, opts = {}) => {
     const projectDir = project

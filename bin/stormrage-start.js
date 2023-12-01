@@ -14,7 +14,8 @@ program
   .option('--port <port>', 'react项目启动端口号, 默认 app: 3000, components: 3030')
   .option('-o, --output <path>', 'fis项目的产出目录, 默认为 D:/debug-root, macOS 下为 ~/debug-root')
   .option('-c, --clean', 'fis项目启动调试时, 先清除编译缓存')
-  .option('--conf <conFileName>', '启动时使用的配置文件名称')
+  .option('--conf <conFileName>', '启动时使用的配置文件名称，默认：default.yml')
+  .option('--debugConf <conFileName>', '启动时使用的debug配置文件名称，默认：debug.yml')
   .option(
     '-f, --field <field>',
     '从yml文件中注入到环境变量中的自定义配置段，CLI会将：business,hosts,gateway,\npdf-preview 这四个配置段进行注入，如果你需要额外的其他配置端，可以使用此参数指\n定，非特殊情况请将业务配置参数定义在business下，遵守字段规范，不要使用本参数\n样例（多个额外字段使用逗号进行分隔）：extra-params-a,extra-params-b'
