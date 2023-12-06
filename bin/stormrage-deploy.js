@@ -27,6 +27,10 @@ program
     '-c, --conf <configFileName>',
     '明确指定部署所使用的配置文件名，带不带后缀无关紧要，CLI将尽可能去寻找'
   )
+  .option(
+    '-bf, --blackField <field>',
+    '指定注入的环境变量黑名单，过滤最终变量注入结果中的某些字段，多个字段用逗号分隔，采用左匹配规则'
+  )
   .option('-cl, --confLabel <label>', '明确指定部署所使用的配置文件名的附加标签，默认为：1')
   .option(
     '--ignoreDir <dirs>',
