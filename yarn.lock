@@ -8023,10 +8023,10 @@ eslint-config-airbnb@19.0.2:
     object.assign "^4.1.2"
     object.entries "^1.1.5"
 
-eslint-config-gmsoft@2.2.4:
-  version "2.2.4"
-  resolved "http://192.168.2.10:8081/repository/npm.gm/eslint-config-gmsoft/-/eslint-config-gmsoft-2.2.4.tgz#f364d411055a48993f55c2b23a56ce6f6e0f5616"
-  integrity sha512-mFnYyGPQEfM0dFI/LmsSVIkq3sPntoryeeI2ykCpMjhNc3W1mzW1C3OhWTMY3+4Qpqc5HcYTJz6aV4i3sv8O2g==
+eslint-config-gmsoft@2.2.5:
+  version "2.2.5"
+  resolved "http://192.168.2.10:8081/repository/npm.gm/eslint-config-gmsoft/-/eslint-config-gmsoft-2.2.5.tgz#9334f82d63f9509bd5919093aefb3dc790c65a3e"
+  integrity sha512-Z+qyy5PdlyqM07290cFFc8NtewsQnPI04c+7GTx2Gtkk+Lb/rjAtEcwMhzxCQlH5pdVGRcf6/sYECrS+XoGQrg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "6.20.0"
     "@typescript-eslint/parser" "6.20.0"
