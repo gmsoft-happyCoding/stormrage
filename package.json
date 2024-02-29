@@ -1,6 +1,6 @@
 {
   "name": "stormrage",
-  "version": "3.0.0-beta.47",
+  "version": "3.0.0-beta.48",
   "description": "gmsoft frontend cli",
   "bin": "bin/stormrage.js",
   "main": "bin/stormrage.js",
@@ -92,7 +92,7 @@
     "prettier": "^3.2.4",
     "progress-bar-webpack-plugin": "^1.12.1",
     "react-dev-utils": "^11.0.1",
-    "react-docgen-typescript": "^1.22.0",
+    "react-docgen-typescript": "^2.2.2",
     "react-refresh": "^0.9.0",
     "react-styleguidist": "11.1.5",
     "resolve": "1.8.1",
