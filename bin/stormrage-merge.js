@@ -52,6 +52,7 @@ program
         ErrorHelper.getErrorMessage(error.message, 'merge'),
         error.message
       );
+      process.exit(1);
     }
   })
   .parse(process.argv);
