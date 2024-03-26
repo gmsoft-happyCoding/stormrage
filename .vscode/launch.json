@@ -103,10 +103,10 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "deploy-test1(wholesale)",
+      "name": "deploy-test1(online-assessment-app)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
-      "args": ["wholesale", "test1", "zcj"]
+      "args": ["online-assessment-app", "test1", "zcj"]
     },
     {
       "type": "node",
