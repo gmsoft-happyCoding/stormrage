@@ -26,6 +26,7 @@ program
   .option('--plugin-option <json>', '传递给插件的参数(must be a json)', pluginOptionProcess)
   .option('--install', '强制执行依赖安装，即使已经存在依赖')
   .option('--reinstall', '删除依赖，重新安装依赖')
+  .option('--pick', '选择需要发布的组件, 组件项目有效')
   .option('-d, --dest [path]', '标识此次为本地Make，path为发布结果存放位置, 默认为<d:/发布结果>')
   .option('--svn <url>', '通过svn url指定需要发布的项目, 优先级高于 [project]')
   .option('--svn-checkout-dir <path>', 'svn拉取的源代码存放的地址, 默认为用户目录')
