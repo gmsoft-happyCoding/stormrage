@@ -119,6 +119,14 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "deploy-local(workflow-manage)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
+      "args": ["workflow-manage", "test1", "zcj", "-d", "--ignoreDir", "modules/.*"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "deploy-test2(gpwmain)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
