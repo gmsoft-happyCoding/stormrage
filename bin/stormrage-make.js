@@ -23,7 +23,6 @@ program
     '-f, --field <field>',
     '从yml文件中注入到环境变量中的自定义配置段，CLI会将：business,hosts,gateway,\npdf-preview 这四个配置段进行注入，如果你需要额外的其他配置端，可以使用此参数指\n定，非特殊情况请将业务配置参数定义在business下，遵守字段规范，不要使用本参数\n样例（多个额外字段使用逗号进行分隔）：extra-params-a,extra-params-b'
   )
-  .option('--plugin-option <json>', '传递给插件的参数(must be a json)', pluginOptionProcess)
   .option('--install', '强制执行依赖安装，即使已经存在依赖')
   .option('--reinstall', '删除依赖，重新安装依赖')
   .option('--pick', '选择需要发布的组件, 组件项目有效')

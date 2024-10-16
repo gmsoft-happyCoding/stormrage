@@ -151,6 +151,14 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "deploy-gpwmain-show",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
+      "args": ["gpwmain", "show", "zcj", "-tm", "1.26.0"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "make-svn(execute-manage)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-make.js",
@@ -164,10 +172,10 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "make-local-test-app",
+      "name": "make-local-gpwmain",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-make.js",
-      "cwd": "D:\\Dev\\P99练习\\C3前端应用\\Stormrage3+版本升级（React-App项目）\\branches\\pybtest\\test-app",
+      "cwd": "D:\\Dev\\政府采购网门户\\master\\gpwmain",
       "args": []
     },
     {
