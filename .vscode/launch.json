@@ -95,6 +95,14 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "deploy-local(test)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
+      "args": ["jcj", "dev1", "xcj", "-tm", "1.0.0"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "deploy-pro(execute-manage)",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\bin\\stormrage-deploy.js",
